@@ -3,6 +3,8 @@ import 'package:flutter/widgets.dart';
 import 'package:app_m/pages/splash/splash.bloc.dart';
 import 'package:app_m/pages/splash/splash.events.dart';
 import 'package:app_m/common/assets.dart' as ASSETS;
+import 'package:app_m/common/colors.dart' as COLORS;
+import 'dart:math';
 
 class SplashPage extends StatefulWidget {
   SplashPage({Key key}) : super(key: key);
@@ -27,16 +29,43 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+    double sizePadding = [width, height].reduce(min) / 8;
+    EdgeInsets paddingLogo = EdgeInsets.only(
+      left: sizePadding,
+      right: sizePadding,
+    );
+
     return Scaffold(
-        body: Container(
-      color: Colors.white,
-      child: Center(
-        child: Image.asset(
-          ASSETS.logo,
-          height: 150.0,
-          width: 150.0,
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: COLORS.LINE_SUNSET,
+        ),
+        child: Stack(
+          children: <Widget>[
+            _buildCenterLogo(paddingLogo),
+            _buildImageBackgroud(),
+          ],
         ),
       ),
-    ));
+    );
+  }
+
+  Center _buildCenterLogo(EdgeInsets paddingLogo) {
+    return Center(
+      child: Padding(
+        padding: paddingLogo,
+        child: Image.asset(
+          ASSETS.logo,
+        ),
+      ),
+    );
+  }
+
+  Image _buildImageBackgroud() {
+    return Image.asset(
+      ASSETS.backgroud,
+    );
   }
 }
