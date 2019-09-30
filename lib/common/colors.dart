@@ -15,3 +15,9 @@ const LinearGradient LINE_SUNSET = LinearGradient(
   end: Alignment.bottomCenter,
   colors: [SUNSET_TOP, SUNSET_BOTTOM],
 );
+
+const LinearGradient LINE_SUNSET_LR = LinearGradient(
+  begin: Alignment.topLeft,
+  end: Alignment.bottomRight,
+  colors: [SUNSET_TOP, SUNSET_BOTTOM],
+);
