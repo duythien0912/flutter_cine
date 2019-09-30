@@ -1,4 +1,8 @@
-# app_m
+# DEMO
+
+![alt text](https://raw.githubusercontent.com/duythien0912/flutter_cine/master/Design/splash.png)
+
+# app_cine
 
 A new Flutter project.
 
